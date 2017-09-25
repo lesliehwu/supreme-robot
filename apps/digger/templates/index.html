@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DjaNinja</title>
+		<style>
+			#your_gold p{
+				display:inline;
+			}
+			#score{
+				border:1px solid black;
+			}
+			ul li{
+				display:inline;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='your_gold'>
+			<p>Your Gold:</p>
+			<p id="score">{{ request.session.gold }}</p>
+		</div>
+		<ul>
+			<li>
+				<h3>Farm</h3>
+				<h5>(earns 10-20 golds)</h5>
+				<form action='/process_money'>
+					<input type='hidden' name='building' value='farm'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</li>
+			<li>
+				<h3>Cave</h3>
+				<h5>(earns 5-10 golds)</h5>
+				<form action='/process_money'>
+					<input type='hidden' name='building' value='cave'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</li>
+			<li>
+				<h3>House</h3>
+				<h5>(earns 2-5 golds)</h5>
+				<form action='/process_money'>
+					<input type='hidden' name='building' value='house'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</li>
+			<li>
+				<h3>Casino</h3>
+				<h5>(earns/takes 0-50 golds)</h5>
+				<form action='/process_money'>
+					<input type='hidden' name='building' value='casino'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</li>
+		</ul>
+		<div>
+			<p>Activities</p>
+			<p>{{request.session.activity}}</p>
+		</div>
+	</body>
+</html>
